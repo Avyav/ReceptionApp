@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme System - Light Mode (Default) */
+body {
+  --c-glass: #bbbbbc;
+  --c-light: #fff;
+  --c-dark: #000;
+  --c-content: #800020;
+  --c-action: #0052f5;
+  --c-bg: #E8E8E9;
+  --glass-reflex-dark: 1;
+  --glass-reflex-light: 1;
+  --saturation: 150%;
+  --bg-image: url('/WebsiteBackroundWhite.jpeg');
+
+  font-family: "DM Sans", "font-mono", sans-serif;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--c-content);
+  transition: background-image 800ms cubic-bezier(0.4, 0, 0.2, 1), color 400ms cubic-bezier(1, 0.0, 0.4, 1);
+}
+
+/* Light theme: Make buttons match glass-card style */
+body:not([data-theme]) .glass-button,
+body[data-theme="light"] .glass-button,
+body:not([data-theme]) .glass-button-primary,
+body[data-theme="light"] .glass-button-primary {
+  background: color-mix(in srgb, var(--c-glass) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-content) 20%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--c-dark) 30%, transparent);
+}
+
+body:not([data-theme]) .glass-button:hover,
+body[data-theme="light"] .glass-button:hover,
+body:not([data-theme]) .glass-button-primary:hover,
+body[data-theme="light"] .glass-button-primary:hover {
+  background: color-mix(in srgb, var(--c-glass) 20%, transparent);
+  border-color: color-mix(in srgb, var(--c-content) 30%, transparent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--c-dark) 40%, transparent);
+  filter: none;
+}
+
+/* Dark Mode */
+body[data-theme="dark"] {
+  --c-glass: #bbbbbc;
+  --c-light: #fff;
+  --c-dark: #000;
+  --c-content: #ffffff;
+  --c-action: #03d5ff;
+  --c-bg: #1b1b1d;
+  --glass-reflex-dark: 2;
+  --glass-reflex-light: 0.3;
+  --saturation: 150%;
+  --bg-image: url('/WebsiteBackroundBlack.jpg');
+}
+
+/* Dark theme: Make buttons match glass-card style */
+body[data-theme="dark"] .glass-button,
+body[data-theme="dark"] .glass-button-primary {
+  background: color-mix(in srgb, var(--c-glass) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-content) 20%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--c-dark) 30%, transparent);
+}
+
+body[data-theme="dark"] .glass-button:hover,
+body[data-theme="dark"] .glass-button-primary:hover {
+  background: color-mix(in srgb, var(--c-glass) 20%, transparent);
+  border-color: color-mix(in srgb, var(--c-content) 30%, transparent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--c-dark) 40%, transparent);
+  filter: none;
+}
+
+/* Sunset Mode */
+body[data-theme="sunset"] {
+  --c-light: #99deff;
+  --c-dark: #20001b;
+  --c-glass: hsl(335 250% 74% / 1);
+  --c-content: #ffffff;
+  --c-action: #ff48a9;
+  --c-bg: #152433;
+  --glass-reflex-dark: 2;
+  --glass-reflex-light: 0.7;
+  --saturation: 200%;
+  --bg-image: url('/WebsiteBackroundMaroon.jpg');
+}
+
+/* Sunset theme: Make buttons match glass-card style */
+body[data-theme="sunset"] .glass-button,
+body[data-theme="sunset"] .glass-button-primary {
+  background: color-mix(in srgb, var(--c-glass) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-content) 20%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--c-dark) 30%, transparent);
+}
+
+body[data-theme="sunset"] .glass-button:hover,
+body[data-theme="sunset"] .glass-button-primary:hover {
+  background: color-mix(in srgb, var(--c-glass) 20%, transparent);
+  border-color: color-mix(in srgb, var(--c-content) 30%, transparent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--c-dark) 40%, transparent);
+  filter: none;
+}
+
+/* Theme text color utility */
+.text-theme {
+  color: var(--c-content);
+  transition: color 400ms cubic-bezier(1, 0.0, 0.4, 1);
+}
+.glass-card {
+  position: relative;
+  backdrop-filter: blur(32px) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(32px) saturate(var(--saturation));
+  background: color-mix(in srgb, var(--c-glass) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-content) 20%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--c-dark) 30%, transparent);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--c-content);
+}
+
+.glass-card:hover {
+  background: color-mix(in srgb, var(--c-glass) 20%, transparent);
+  border-color: color-mix(in srgb, var(--c-content) 30%, transparent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--c-dark) 40%, transparent);
+  transform: translateY(-2px);
+}
+
+/* Liquid Glass Button Effect */
+.glass-button {
+  position: relative;
+  backdrop-filter: blur(20px) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(20px) saturate(var(--saturation));
+  background: color-mix(in srgb, var(--c-action) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-light) 30%, transparent);
+  color: var(--c-content);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Liquid glass distortion layer */
+.glass-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: inherit;
+  z-index: -1;
+  filter: url(#liquid-glass);
+}
+
+/* Animated background layer for liquid effect */
+.glass-button::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: floatBG 15s ease-in-out infinite;
+  z-index: -2;
+}
+
+.glass-button:hover {
+  background: color-mix(in srgb, var(--c-action) 30%, transparent);
+  border-color: color-mix(in srgb, var(--c-light) 40%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--c-dark) 20%, transparent);
+  filter: brightness(1.1);
+}
+
+.glass-button-primary {
+  position: relative;
+  backdrop-filter: blur(20px) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(20px) saturate(var(--saturation));
+  background: color-mix(in srgb, var(--c-action) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-action) 90%, transparent);
+  color: var(--c-content);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Liquid glass distortion layer */
+.glass-button-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: inherit;
+  z-index: -1;
+  filter: url(#liquid-glass);
+}
+
+/* Animated background layer for liquid effect */
+.glass-button-primary::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: floatBG 15s ease-in-out infinite;
+  z-index: -2;
+}
+
+.glass-button-primary:hover {
+  background: color-mix(in srgb, var(--c-action) 95%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--c-action) 40%, transparent);
+  filter: brightness(1.15);
+}
+
+/* Floating background animation for liquid effect */
+@keyframes floatBG {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30%, 70%) scale(1.1);
+  }
+  50% {
+    transform: translate(70%, 30%) scale(0.9);
+  }
+  75% {
+    transform: translate(40%, 60%) scale(1.05);
+  }
+}
+
+.glass-input {
+  backdrop-filter: blur(20px) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(20px) saturate(var(--saturation));
+  background: color-mix(in srgb, var(--c-glass) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-light) 30%, transparent);
+  color: var(--c-content);
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  background: color-mix(in srgb, var(--c-glass) 25%, transparent);
+  border-color: color-mix(in srgb, var(--c-action) 60%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-action) 20%, transparent);
+}
+
+.glass-input::placeholder {
+  color: color-mix(in srgb, var(--c-content) 60%, transparent);
+}
+
+/* Header with glass effect */
+.header-glass {
+  backdrop-filter: blur(40px) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(40px) saturate(var(--saturation));
+  background: color-mix(in srgb, var(--c-glass) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--c-light) 20%, transparent);
+}
+
+/* Marble accent overlay */
+.header-marble {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--c-glass) 10%, transparent) 0%, color-mix(in srgb, var(--c-action) 5%, transparent) 100%);
+}
+
+/* Theme Switcher Styles */
+.switcher {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  right: 20px;
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 70px;
+  max-width: 70px;
+  min-height: 244px;
+  box-sizing: border-box;
+  padding: 12px 8px 10px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 99em;
+  font-size: 20px;
+  background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+  backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation));
+  -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+  box-shadow: 
+    inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+    inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+    inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+    inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+    inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
+    inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+    inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+    inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+    0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+    0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+  transition: 
+    background-color 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0.0, 0.4, 1);
+}
+
+@media (max-width: 768px) {
+  .switcher {
+    right: 10px;
+    width: 60px;
+    max-width: 60px;
+    min-height: 200px;
+    padding: 10px 6px 8px;
+  }
+  
+  .switcher__option {
+    height: 56px;
+    padding: 12px 0;
+  }
+  
+  .switcher::after {
+    height: 68px;
+  }
+  
+  .switcher:has(input[data-option="2"]:checked)::after {
+    translate: 0 64px;
+  }
+  
+  .switcher:has(input[data-option="3"]:checked)::after {
+    translate: 0 128px;
+  }
+}
+
+.switcher__legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.switcher__input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.switcher__icon {
+  display: block;
+  width: 100%;
+  transition: scale 200ms cubic-bezier(0.5, 0, 0, 1);
+  color: var(--c);
+}
+
+.switcher__option {
+  --c: var(--c-content);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  width: 100%;
+  height: 68px;
+  box-sizing: border-box;
+  border-radius: 99em;
+  opacity: 1;
+  transition: all 160ms;
+}
+
+.switcher__option:hover {
+  --c: var(--c-action);
+  cursor: pointer;
+}
+
+.switcher__option:hover .switcher__icon {
+  scale: 1.2;
+}
+
+.switcher__option:has(input:checked) {
+  --c: var(--c-content);
+  cursor: auto;
+}
+
+.switcher__option:has(input:checked) .switcher__icon {
+  scale: 1;
+}
+
+.switcher::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  display: block;
+  width: calc(100% - 10px);
+  height: 84px;
+  border-radius: 99em;
+  background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);
+  z-index: -1;
+  box-shadow: 
+    inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+    inset 2px 1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent), 
+    inset -1.5px -1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent), 
+    inset -2px -6px 1px -5px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent), 
+    inset -1px 2px 3px -1px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent), 
+    inset 0px -4px 1px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
+    0px 3px 6px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+}
+
+.switcher[data-previous="1"]:has(input[data-option="1"]:checked)::after {
+  translate: 0 0;
+  transform-origin: bottom;
+  transition: 
+    background-color 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    translate 400ms cubic-bezier(1, 0.0, 0.4, 1);
+  animation: scaleToggle 440ms ease;
+}
+
+.switcher:has(input[data-option="2"]:checked)::after {
+  translate: 0 76px;
+  transition: 
+    background-color 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    translate 400ms cubic-bezier(1, 0.0, 0.4, 1);
+  animation: scaleToggle2 440ms ease;
+}
+
+.switcher[data-previous="1"]:has(input[data-option="2"]:checked)::after {
+  transform-origin: top;
+}
+
+.switcher[data-previous="3"]:has(input[data-option="2"]:checked)::after {
+  transform-origin: bottom;
+}
+
+.switcher:has(input[data-option="3"]:checked)::after {
+  translate: 0 152px;
+  transform-origin: top;
+  transition: 
+    background-color 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    translate 400ms cubic-bezier(1, 0.0, 0.4, 1);
+  animation: scaleToggle3 440ms ease;
+}
+
+@keyframes scaleToggle {
+  0% { scale: 1 1; }
+  50% { scale: 1.1 1; }
+  100% { scale: 1 1; }
+}
+
+@keyframes scaleToggle2 {
+  0% { scale: 1 1; }
+  50% { scale: 1.2 1; }
+  100% { scale: 1 1; }
+}
+
+@keyframes scaleToggle3 {
+  0% { scale: 1 1; }
+  50% { scale: 1.1 1; }
+  100% { scale: 1 1; }
+  }

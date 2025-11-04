@@ -1,0 +1,163 @@
+[
+  {
+    "table": 24,
+    "x": 56.5,
+    "y": 43,
+    "width": 2.52,
+    "height": 3,
+    "type": "rectangle"
+  },
+  {
+    "table": 1,
+    "x": 39.21,
+    "y": 46.52,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 2,
+    "x": 39.21,
+    "y": 54.8,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 3,
+    "x": 39.21,
+    "y": 63,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 4,
+    "x": 39.21,
+    "y": 71.29,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 5,
+    "x": 44.21,
+    "y": 72,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 6,
+    "x": 44.21,
+    "y": 63.7,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 7,
+    "x": 44.21,
+    "y": 55.2,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 8,
+    "x": 44.21,
+    "y": 47,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 9,
+    "x": 47.6,
+    "y": 47,
+    "width": 4,
+    "height": 15.5,
+    "type": "rectangle"
+  },  
+  {
+    "table": 10,
+    "x": 49.4,
+    "y": 67.8,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },  
+  {
+    "table": 11,
+    "x": 49.4,
+    "y": 76.2,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },  
+  {
+    "table": 12,
+    "x": 66.3,
+    "y": 67.1,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },
+  {
+    "table": 13,
+    "x": 64.2,
+    "y": 47,
+    "width": 4,
+    "height": 15.5,
+    "type": "rectangle"
+  },  
+  {
+    "table": 14,
+    "x": 71.6,
+    "y": 50.4,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },  
+  {
+    "table": 15,
+    "x": 71.6,
+    "y": 58.8,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },  
+  {
+    "table": 16,
+    "x": 71.6,
+    "y": 67.2,
+    "width": 2,
+    "height": 2,
+    "type": "circle"
+  },  
+  {
+    "table": 17,
+    "x": 76.85,
+    "y": 65.2,
+    "width": 2.1,
+    "height": 2.1,
+    "type": "circle"
+  },  
+  {
+    "table": 18,
+    "x": 76.85,
+    "y": 56.1,
+    "width": 2.1,
+    "height": 2.1,
+    "type": "circle"
+  },  
+  {
+    "table": 19,
+    "x": 76.85,
+    "y": 46.96,
+    "width": 2.1,
+    "height": 2.1,
+    "type": "circle"
+  }
+]
+
