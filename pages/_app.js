@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import Head from 'next/head'
-import ThemeSwitcher from '../components/ThemeSwitcher'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -32,25 +31,8 @@ export default function MyApp({ Component, pageProps }) {
               yChannelSelector="G"
             />
           </filter>
-          <filter id="switcher">
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="3"
-              seed="2"
-              result="turb"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="turb"
-              scale="15"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
         </defs>
       </svg>
-      <ThemeSwitcher />
       <Component {...pageProps} />
     </>
   )

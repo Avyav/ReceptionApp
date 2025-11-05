@@ -45,20 +45,17 @@ export default function FindSeat() {
           >
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-3xl md:text-4xl font-mono text-theme">Find Your Seat</h2>
-              <div className="flex gap-2">
-                <button 
-                  onClick={() => router.push('/')} 
-                  className="glass-button px-4 py-2 rounded-full text-theme text-xs"
-                >
-                  Back
-                </button>
-                <button 
-                  onClick={() => router.push('/program')} 
-                  className="glass-button px-4 py-2 rounded-full text-theme text-xs"
-                >
-                  Program
-                </button>
-              </div>
+              <button 
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    sessionStorage.setItem('skipAnimation', 'true')
+                  }
+                  router.push('/')
+                }} 
+                className="glass-button px-4 py-2 rounded-full text-theme text-xs"
+              >
+                Home
+              </button>
             </div>
             <p className="text-sm md:text-base text-theme opacity-80">Type your name to find your table</p>
 
@@ -133,12 +130,6 @@ export default function FindSeat() {
                   <div className="mt-2 text-base text-theme opacity-90">{selected.name}</div>
 
                   <div className="mt-8 flex gap-3 justify-center">
-                    <button 
-                      onClick={() => { router.push(`/floorplan?table=${selected.table}`); }} 
-                      className="glass-button px-5 py-2 rounded-full text-theme text-sm"
-                    >
-                      Show on floor plan
-                    </button>
                     <button 
                       onClick={() => setSelected(null)} 
                       className="glass-button-primary px-5 py-2 rounded-full text-theme text-sm"

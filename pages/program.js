@@ -29,20 +29,17 @@ export default function Program() {
         >
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-3xl md:text-4xl font-mono text-theme">Program</h2>
-            <div className="flex gap-2">
-              <button 
-                onClick={() => router.push('/find-seat')} 
-                className="glass-button px-4 py-2 rounded-full text-theme text-xs"
-              >
-                Back
-              </button>
-              <button 
-                onClick={() => router.push('/floorplan')} 
-                className="glass-button px-4 py-2 rounded-full text-theme text-xs"
-              >
-                Floor Plan
-              </button>
-            </div>
+            <button 
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('skipAnimation', 'true')
+                }
+                router.push('/')
+              }} 
+              className="glass-button px-4 py-2 rounded-full text-theme text-xs"
+            >
+              Home
+            </button>
           </div>
           <div className="mt-6 space-y-3">
             {items.map((it, i) => (

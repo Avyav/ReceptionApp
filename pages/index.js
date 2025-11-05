@@ -6,11 +6,11 @@ function Typewriter({ onComplete }) {
   const [displayText, setDisplayText] = useState('')
   const [line2, setLine2] = useState('')
   const [showCursor, setShowCursor] = useState(true)
-  const [bgImage, setBgImage] = useState('/WebsiteBackroundWhite.jpeg')
-  const [textColor, setTextColor] = useState('#800020') // Maroon for light theme
   
   const fullText = "Welcome to Avyav and Taran's Reception"
   const fullText2 = "This Website was Developed by Avyav"
+  const bgImage = '/WebsiteBackroundBlack.jpg'
+  const textColor = '#ffffff'
   
   useEffect(() => {
     let currentIndex = 0
@@ -58,40 +58,6 @@ function Typewriter({ onComplete }) {
     return () => clearInterval(cursorInterval)
   }, [onComplete])
 
-  useEffect(() => {
-    // Get current theme and set appropriate background and text color
-    const getThemeSettings = () => {
-      if (typeof window === 'undefined') {
-        return { bg: '/WebsiteBackroundWhite.jpeg', color: '#800020' }
-      }
-      const theme = document.body.getAttribute('data-theme') || localStorage.getItem('theme') || 'light'
-      if (theme === 'dark') {
-        return { bg: '/WebsiteBackroundBlack.jpg', color: '#ffffff' }
-      }
-      if (theme === 'sunset') {
-        return { bg: '/WebsiteBackroundMaroon.jpg', color: '#ffffff' }
-      }
-      return { bg: '/WebsiteBackroundWhite.jpeg', color: '#800020' } // Maroon for light
-    }
-    
-    const settings = getThemeSettings()
-    setBgImage(settings.bg)
-    setTextColor(settings.color)
-    
-    // Listen for theme changes
-    const observer = new MutationObserver(() => {
-      const newSettings = getThemeSettings()
-      setBgImage(newSettings.bg)
-      setTextColor(newSettings.color)
-    })
-    
-    if (document.body) {
-      observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] })
-    }
-    
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <div 
       className="w-full h-screen flex justify-center items-center fixed inset-0 z-[60]" 
@@ -131,6 +97,17 @@ export default function Home() {
   const router = useRouter()
   const [showContent, setShowContent] = useState(false)
 
+  useEffect(() => {
+    // Check if animation should be skipped (when navigating from Home button)
+    if (typeof window !== 'undefined') {
+      const skipAnimation = sessionStorage.getItem('skipAnimation') === 'true'
+      if (skipAnimation) {
+        setShowContent(true)
+        sessionStorage.removeItem('skipAnimation')
+      }
+    }
+  }, [])
+
   return (
     <>
       <AnimatePresence>
@@ -148,12 +125,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="min-h-screen antialiased"
           >
-            <header className="w-full header-glass header-marble fixed top-0 left-0 right-0 z-50">
-              <div className="h-28 md:h-36 max-w-4xl mx-auto px-6">
-              </div>
-            </header>
-
-            <main className="max-w-4xl mx-auto px-6 py-10 pt-32">
+            <main className="max-w-4xl mx-auto px-6 py-10">
               <motion.section 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
@@ -174,7 +146,7 @@ export default function Home() {
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <motion.button 
                       onClick={() => router.push('/find-seat')}
-                      className="glass-button px-8 py-4 rounded-full text-theme text-sm font-medium"
+                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -182,19 +154,43 @@ export default function Home() {
                     </motion.button>
                     <motion.button 
                       onClick={() => router.push('/program')}
-                      className="glass-button px-8 py-4 rounded-full text-theme text-sm font-medium"
+                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       Program
                     </motion.button>
                     <motion.button 
-                      onClick={() => router.push('/floorplan')}
-                      className="glass-button px-8 py-4 rounded-full text-theme text-sm font-medium"
+                      onClick={() => router.push('/menu')}
+                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      Floor Plan
+                      Menu
+                    </motion.button>
+                    <motion.button 
+                      onClick={() => router.push('/drinks')}
+                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Drinks
+                    </motion.button>
+                    <motion.button 
+                      onClick={() => router.push('/leave-note')}
+                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Leave a Note
+                    </motion.button>
+                    <motion.button 
+                      onClick={() => router.push('/about-couple')}
+                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      About Us
                     </motion.button>
                   </div>
                 </div>
