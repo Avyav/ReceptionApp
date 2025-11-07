@@ -146,7 +146,7 @@ export default function Home() {
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <motion.button 
                       onClick={() => router.push('/find-seat')}
-                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      className="glass-button no-shine px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -154,7 +154,7 @@ export default function Home() {
                     </motion.button>
                     <motion.button 
                       onClick={() => router.push('/program')}
-                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      className="glass-button no-shine px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -162,7 +162,7 @@ export default function Home() {
                     </motion.button>
                     <motion.button 
                       onClick={() => router.push('/menu')}
-                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      className="glass-button no-shine px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -170,7 +170,7 @@ export default function Home() {
                     </motion.button>
                     <motion.button 
                       onClick={() => router.push('/drinks')}
-                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      className="glass-button no-shine px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -178,7 +178,7 @@ export default function Home() {
                     </motion.button>
                     <motion.button 
                       onClick={() => router.push('/leave-note')}
-                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      className="glass-button no-shine px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -186,7 +186,7 @@ export default function Home() {
                     </motion.button>
                     <motion.button 
                       onClick={() => router.push('/about-couple')}
-                      className="glass-button px-8 py-3 rounded-full text-theme text-xs font-medium"
+                      className="glass-button no-shine px-8 py-3 rounded-full text-theme text-xs font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

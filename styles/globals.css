@@ -98,6 +98,11 @@ body .glass-button-primary:hover {
   z-index: -2;
 }
 
+/* Disable shine animation for buttons without the effect */
+.glass-button.no-shine::after {
+  display: none;
+}
+
 .glass-button:hover {
   background: color-mix(in srgb, var(--c-action) 30%, transparent);
   border-color: color-mix(in srgb, var(--c-light) 40%, transparent);

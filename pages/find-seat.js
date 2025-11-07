@@ -69,7 +69,7 @@ export default function FindSeat() {
                 />
                 <button 
                   onClick={() => { setQuery(''); setSelected(null) }} 
-                  className="glass-button px-5 py-3 rounded-full text-theme text-sm font-medium"
+                  className="glass-button px-5 py-3 rounded-full text-theme text-sm font-medium text-center"
                 >
                   Clear
                 </button>
