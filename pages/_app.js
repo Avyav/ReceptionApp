@@ -10,7 +10,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="description" content="Welcome to Avyav & Taran's Reception — Wedding micro-site" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
       {/* SVG Filters */}
       <svg style={{ position: 'absolute', width: 0, height: 0, visibility: 'hidden' }}>

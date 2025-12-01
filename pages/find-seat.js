@@ -2,18 +2,39 @@ import { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { createPortal } from 'react-dom'
-import guestsData from '../public/guests.json'
 
 export default function FindSeat() {
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(null)
+  const [guestsData, setGuestsData] = useState([])
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
+
+  // Fetch guests from Excel file via API
+  useEffect(() => {
+    const fetchGuests = async () => {
+      try {
+        const response = await fetch('/api/guests')
+        if (response.ok) {
+          const data = await response.json()
+          setGuestsData(data)
+        } else {
+          console.error('Failed to fetch guests:', response.statusText)
+        }
+      } catch (error) {
+        console.error('Error fetching guests:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchGuests()
+  }, [])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
     if(!q) return guestsData
     return guestsData.filter(g => g.name.toLowerCase().includes(q))
-  }, [query])
+  }, [query, guestsData])
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -66,17 +87,13 @@ export default function FindSeat() {
                   onChange={e => setQuery(e.target.value)} 
                   placeholder="Search by name..." 
                   className="glass-input flex-1 rounded-full px-5 py-3 focus:outline-none" 
+                  disabled={loading}
                 />
-                <button 
-                  onClick={() => { setQuery(''); setSelected(null) }} 
-                  className="glass-button px-5 py-3 rounded-full text-theme text-sm font-medium text-center"
-                >
-                  Clear
-                </button>
               </div>
 
               <div className="mt-6 grid gap-3">
-                {results.length === 0 && <div className="text-sm text-theme opacity-70 text-center py-4">No matching guests.</div>}
+                {loading && <div className="text-sm text-theme opacity-70 text-center py-4">Loading guests...</div>}
+                {!loading && results.length === 0 && <div className="text-sm text-theme opacity-70 text-center py-4">No matching guests.</div>}
                 {results.map(g => (
                   <motion.button 
                     key={g.name} 

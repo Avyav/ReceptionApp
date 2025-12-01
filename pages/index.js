@@ -8,7 +8,7 @@ function Typewriter({ onComplete }) {
   const [showCursor, setShowCursor] = useState(true)
   
   const fullText = "Welcome to Avyav and Taran's Reception"
-  const fullText2 = "This Website was Developed by Avyav"
+  const fullText2 = "Website developed by Avyav"
   const bgImage = '/WebsiteBackroundBlack.jpg'
   const textColor = '#ffffff'
   
@@ -36,7 +36,7 @@ function Typewriter({ onComplete }) {
         if (currentIndex < fullText2.length) {
           setLine2(fullText2.substring(0, currentIndex + 1))
           currentIndex++
-          setTimeout(type, 50) // Faster typing for second line
+          setTimeout(type, 30) // Faster typing for second line
         } else {
           // Finished both lines - wait then transition
           setTimeout(() => {
@@ -98,21 +98,59 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    // Check if animation should be skipped (when navigating from Home button)
     if (typeof window !== 'undefined') {
+      // Check if animation should be skipped (when navigating from Home button)
       const skipAnimation = sessionStorage.getItem('skipAnimation') === 'true'
-      if (skipAnimation) {
+      
+      // Check if user has already seen the home page content before
+      const hasSeenHome = sessionStorage.getItem('hasSeenHome') === 'true'
+      
+      // Detect browser back/forward navigation using pageshow event
+      const handlePageShow = (e) => {
+        // If page is being restored from bfcache (back/forward button)
+        if (e.persisted) {
+          setShowContent(true)
+        }
+      }
+      
+      // Detect popstate (back/forward button) - fires before pageshow
+      const handlePopState = () => {
+        // If user has seen home before, skip animation on back navigation
+        const hasSeenHomeCheck = sessionStorage.getItem('hasSeenHome') === 'true'
+        if (hasSeenHomeCheck) {
+          setShowContent(true)
+        }
+      }
+      
+      window.addEventListener('pageshow', handlePageShow)
+      window.addEventListener('popstate', handlePopState)
+      
+      // Skip animation if explicitly set via Home button or if user has seen home before
+      if (skipAnimation || hasSeenHome) {
         setShowContent(true)
         sessionStorage.removeItem('skipAnimation')
       }
+      
+      return () => {
+        window.removeEventListener('pageshow', handlePageShow)
+        window.removeEventListener('popstate', handlePopState)
+      }
     }
   }, [])
+  
+  // Mark that user has seen home page when animation completes
+  const handleAnimationComplete = () => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('hasSeenHome', 'true')
+    }
+    setShowContent(true)
+  }
 
   return (
     <>
       <AnimatePresence>
         {!showContent && (
-          <Typewriter onComplete={() => setShowContent(true)} />
+          <Typewriter onComplete={handleAnimationComplete} />
         )}
       </AnimatePresence>
 
