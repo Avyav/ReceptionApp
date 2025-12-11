@@ -7,12 +7,13 @@ export default function AboutCouple() {
   // Blurb text - you can customize this
   const blurb = `We first crossed paths in March 2019, and what began as a cute introduction from some friends, quickly became a lifelong partnership.
 
-  Taran is a dedicated Doctor, specialising in psychiatry, whereas Avyav works as a Senior Investment Analyst for AustralianSuper. She saves lives, he saves spreadsheets. She prescribes medication. He prescrives "Diversify you portfolio" :D
-  Together, we make a balanced partners and ensure that our health and finances are always well looked after.
+  Taran is a dedicated Doctor, specialising in psychiatry, whereas Avyav works as a Senior Investment Analyst for AustralianSuper. She saves lives, he saves spreadsheets. She prescribes medication. He prescribes "Diversify your portfolio" :D
 
-  After almost 7 years together, we have both grown as individuals and a stable unit. Shared experiences, travel and integrating with one anothers family has built strong foundations for our future.
+Together, we make balanced partners and ensure that our health and finances are always well looked after.
+
+  After almost 7 years together, we have both grown as individuals and a stable unit. Shared experiences, travel and integrating with one another's family has built strong foundations for our future.
   
-  We are so excited to celebrate our wedding reception with all of you. Thank you for all the love, support and blessings that we have recieved this past week.`
+  We are so excited to celebrate our wedding reception with all of you. Thank you for all the love, support and blessings that we have received this past week.`
 
   return (
     <div className="min-h-screen py-8 px-6">
