@@ -6,12 +6,10 @@ export default function Drinks() {
   
   // Drink items - you can customize these
   const drinkCategories = [
-    { category: 'Cocktails', items: ['Signature Cocktail', 'Mojito', 'Old Fashioned', 'Margarita'] },
-    { category: 'Mocktails', items: ['Virgin Mojito', 'Strawberry Lemonade', 'Pineapple Fizz', 'Berry Spritzer'] },
-    { category: 'Spirits', items: ['Whiskey', 'Vodka', 'Rum', 'Gin', 'Tequila'] },
-    { category: 'Wine', items: ['Red Wine', 'White Wine', 'Champagne', 'Rosé'] },
-    { category: 'Beer', items: ['Craft Beer', 'Lager', 'IPA', 'Wheat Beer'] },
-    { category: 'Soft Drinks', items: ['Coca Cola', 'Sprite', 'Juice Selection', 'Sparkling Water'] }
+    { category: 'Welcome Drinks', items: ['Garden Party Mocktail', 'Spicy Margarita Cocktail'] },
+    { category: 'Beverages', items: ['Tatachilla Sparkling', 'Multi Regional', 'Hartogs Plate Sauvignon Blanc Semillon', 'Western Australia Hartogs Plate Cabernet Merlot', 'Western Australia Carlton Draught', 'Great Northern Super Crisp Lager (Mid Strength beer)', 'Asahi Zero', 'Altina La Vie En Rose Sparkling Rose with Rosella & Hibiscus'] },
+    { category: 'Soft Drinks', items: ['Orange Juice', 'Apple Juice', 'Coke', 'Coke No Sugar', 'Lemonade', 'Squash Still Water'] },
+    { category: 'Spirits', items: ['Absolut Vodka', 'Beefeater Gin', 'Havana 3 Year Old Rum', 'Olemeca Blanco Tequila', 'Chivas Regal 12 Year Old Blended Malt Whiskey', 'Fireball'] }
   ]
 
   return (
