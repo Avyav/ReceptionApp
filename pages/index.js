@@ -8,7 +8,7 @@ function Typewriter({ onComplete }) {
   const [showCursor, setShowCursor] = useState(true)
   
   const fullText = "Welcome to Avyav and Taran's Reception"
-  const fullText2 = "Website developed by Avyav"
+  const fullText2 = "This website was developed by Avyav"
   const bgImage = '/WebsiteBackroundBlack.jpg'
   const textColor = '#ffffff'
   
