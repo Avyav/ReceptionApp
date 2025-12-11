@@ -25,28 +25,28 @@ export default async function handler(req, res) {
     // Convert to JSON with header row
     const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 })
     
-    // Parse CSV data: Column 1 is Name, Column 2 is Table Number
+    // Parse CSV data: Column 1 (index 0) is Table, Column 2 (index 1) is Name
     const guests = []
     
     // Skip header row (index 0) and parse data rows
     for (let i = 1; i < data.length; i++) {
       const row = data[i]
       if (Array.isArray(row) && row.length >= 2) {
-        const name = String(row[0] || '').trim()
-        const tableValue = String(row[1] || '').trim()
+        const tableValue = String(row[0] || '').trim()
+        const name = String(row[1] || '').trim()
         
         // Skip empty rows
         if (!name || !tableValue) continue
         
-        // Extract table number from "Table X" format or use as-is
+        // Extract table number - handle numeric values and "Vendor Table" format
         let tableNumber = tableValue
-        const tableMatch = tableValue.match(/table\s*(\d+)/i)
-        if (tableMatch) {
-          tableNumber = parseInt(tableMatch[1])
+        const parsed = parseInt(tableValue)
+        if (!isNaN(parsed)) {
+          // It's a numeric table number
+          tableNumber = parsed
         } else {
-          // Try to parse as number, otherwise keep as string (e.g., "Vendor table")
-          const parsed = parseInt(tableValue)
-          tableNumber = !isNaN(parsed) ? parsed : tableValue
+          // Keep as string for special tables like "Vendor Table"
+          tableNumber = tableValue
         }
         
         guests.push({

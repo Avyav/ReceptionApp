@@ -143,7 +143,9 @@ export default function FindSeat() {
               >
                 <div className="text-center">
                   <div className="text-sm text-theme opacity-70">You're seated at</div>
-                  <div className="mt-3 text-4xl font-mono text-gold">Table {selected.table}</div>
+                  <div className="mt-3 text-4xl font-mono text-gold">
+                    {typeof selected.table === 'number' ? `Table ${selected.table}` : selected.table}
+                  </div>
                   <div className="mt-2 text-base text-theme opacity-90">{selected.name}</div>
 
                   <div className="mt-8 flex gap-3 justify-center">
