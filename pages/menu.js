@@ -8,8 +8,8 @@ export default function Menu() {
   const menuItems = [
     { category: 'Welcome Canapes', items: ['Papdi Chaat', 'Butta Masala / Spiced Baby Corn','Watermelon Chaat with goat cheese'] },
     { category: 'Entrés', items: ['Chilli Gobhi with Spring Onion & Pineapple Salad', 'Plantain and Spinach Kofta in Yoghurt Sauce', 'Sticky roast Lamb with tamarind'] },
-    { category: 'Main Course', items: ['Punjabi Kadhi Pakoda', 'Grilled Chicken with Ka-Salan Sauce', 'Lamb Rump with Lal Mass Gravy','Tandoori Cauliflower'] },
-    { category: 'Sides', items: ['Mixed Naan / Roti', 'Saffron Rice', 'Raita', 'Papadams'] },
+    { category: 'Main Course', items: ['Punjabi Kadhi Pakoda', 'Daal Makhani', 'Murgh Makhani','Palak Paneer'] },
+    { category: 'Sides', items: ['Cucumber Raita','Mixed Naan / Roti', 'Saffron Rice', 'Papadams'] },
     { category: 'Desserts', items: ['Kulfi Domes', 'Saffron Cheesecake']}
   ]
 
