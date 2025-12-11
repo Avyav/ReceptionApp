@@ -4,17 +4,20 @@ import { useRouter } from 'next/router'
 export default function Program() {
   const router = useRouter()
   const items = [
-    { time: '6:00 PM', title: 'Welcome Drinks' },
-    { time: '6:30 PM', title: 'Canapes' },
-    { time: '7:00 PM', title: 'Bridal Party Entrances' },
-    { time: '7:20 PM', title: 'Avyav and Taran' },
-    { time: '7:30 PM', title: 'Entre Service' },
-    { time: '7:45 PM', title: 'Speeches |' },
-    { time: '8:00 PM', title: 'Next Day Edit' },
-    { time: '8:10 PM', title: 'Mains' },
-    { time: '8:20 PM', title: 'Speeches ||' },
-    { time: '8:40 PM', title: 'Dancefloor Opens' },
-    { time: '10:00 PM', title: 'Dessert Service' },
+    { time: '6:30 PM', title: 'Welcome Drinks & Canapes' },
+    { time: '7:15 PM', title: 'Bridal Party Entrances' },
+    { time: '7:25 PM', title: 'MC Welcome + Housekeeping' },
+    { time: '7:35 PM', title: 'Avyav and Taran' },
+    { time: '7:50 PM', title: 'Entrée Service' },
+    { time: '8:05 PM', title: 'Speeches (Siblings & Friends)' },
+    { time: '8:25 PM', title: 'Game - Organised by MCs' },
+    { time: '8:40 PM', title: 'Speeches (Parents)' },
+    { time: '8:55 PM', title: 'Mains' },
+    { time: '9:10 PM', title: 'Next Day Edit' },
+    { time: '9:25 PM', title: 'Speeches (Taran & Avyav)' },
+    { time: '9:30 PM', title: 'Dancefloor Opens' },
+    { time: '10:15 PM', title: 'Dessert Service' },
+    { time: '11:00 PM', title: 'Take Home Bouquets' },
     { time: '11:30 PM', title: 'Event Concludes' }
   ]
 
